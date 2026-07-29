@@ -40,3 +40,17 @@ python make_interlinear.py            # interlineal
 ```
 
 Luego se copian los dos HTML resultantes a este repositorio.
+
+### Publicación automática
+
+El script `_kamus_build\publish.ps1` hace todo lo anterior de una vez —reconstruye, copia,
+hace commit y push— y el sitio se actualiza solo:
+
+```powershell
+.\publish.ps1                          # build completo + publicar
+.\publish.ps1 -Message "arreglo glosa" # mensaje de commit propio
+.\publish.ps1 -SkipBuild               # solo copiar y publicar
+.\publish.ps1 -NoPush                  # commit sin subir
+```
+
+Cierra el `.xlsx` en Excel antes de ejecutarlo, o el build fallará.
